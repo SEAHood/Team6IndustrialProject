@@ -1,0 +1,31 @@
+REQUIREMENTS
+
+FUNCTIONAL
+	1.	The app must search all known current social media sites (e.g. Facebook, Twitter, LinkedIn, etc.) and have the facility to include more as new social media sites come onto the market.
+
+	2.	The app must include a number of search filters to narrow down job searches:
+			- Specific location and proximity
+			- Hours of employment (Up to 16h; 16h to 24h; 24h+; Any hours)
+			- Employment type (with intelligence to interpret various job titles for similar job roles)
+			- Employers (with option of alternatives in similar industry)
+			- Industry type (e.g. manufacturing, catering, etc.)
+			
+	3.	The app must allow the user to save their search results (and other job-related data) for up to one month
+
+	4.	The app must display full details of vacancies and how to apply for job search results.
+
+	
+NON-FUNCTIONAL
+	2.	The app must have versions suitable for all smartphone operating systems - iOS, Android, Windows.
+
+	3.	The app must display the Department of Work and Pensions (DWP) logo.
+
+	
+ADDITIONAL:
+	1.	Intelligent geo-tracking that narrows searches based on location.
+	
+	2.	Ability to calculate travel time (by public transport) to the place of employment (based on postcode).
+	
+	3.	Identification of inward investment, training opportunities, and graduate opportunities to the location specified.
+	
+	4.	Facility to search other websites used to advertise job opportunities out-with 'social media' (e.g. Gumtree).
