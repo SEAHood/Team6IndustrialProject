@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">JobHound</string>
+	
+    <string name="back">Back</string>
+    
+    <!-- Main Menu -->
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="diary">Diary</string>
+    <string name="saved">Saved</string>
+    
+    <!-- Search Menu -->
+    <string name="searchChoice">Choose Your Search Type: </string>
+    <string name="custom">Custom</string>
+    
+    <!-- Profile Page -->
+    <string name="job1">Job 1: </string>
+    <string name="job2">Job 2: </string>
+    <string name="job3">Job 3: </string>
+    
+    <!-- Search Results -->
+    <string name="results">Search Results: </string>
+</resources>

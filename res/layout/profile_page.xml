@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+ <EditText
+     android:id="@+id/job1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentTop="true"
+     android:layout_centerHorizontal="true"
+     android:layout_marginTop="21dp"
+     android:ems="10" 
+     android:background="@drawable/custom_button_green"/>
+
+ <EditText
+     android:id="@+id/job2"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignLeft="@+id/job1"
+     android:layout_below="@+id/job1"
+     android:layout_marginTop="16dp"
+     android:ems="10" 
+     android:background="@drawable/custom_button_green"/>
+
+ <EditText
+     android:id="@+id/job3"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignLeft="@+id/job2"
+     android:layout_below="@+id/job2"
+     android:layout_marginTop="15dp"
+     android:ems="10"
+     android:background="@drawable/custom_button_green" />
+
+ <TextView
+     android:id="@+id/jobText1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignBaseline="@+id/job1"
+     android:layout_alignBottom="@+id/job1"
+     android:layout_alignParentLeft="true"
+     android:text="@string/job1" />
+
+ <TextView
+     android:id="@+id/jobText2"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignBaseline="@+id/job2"
+     android:layout_alignBottom="@+id/job2"
+     android:layout_alignParentLeft="true"
+     android:text="@string/job2" />
+
+ <TextView
+     android:id="@+id/jobText3"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignBaseline="@+id/job3"
+     android:layout_alignBottom="@+id/job3"
+     android:layout_alignParentLeft="true"
+     android:text="@string/job3" />
+
+ <Spinner
+     android:id="@+id/spinner1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerHorizontal="true"
+     android:layout_below="@+id/job3"/>
+
+</RelativeLayout>

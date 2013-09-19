@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+     tools:context=".SearchMenu" >
+
+    
+    <View
+        android:id="@+id/anchor"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    
+    <Button
+        android:id="@+id/profileSearch"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/anchor"
+        android:layout_marginLeft="55dp"
+        android:text="@string/profile"
+        android:background="@drawable/custom_button_green"/>
+    
+    <Button
+        android:id="@+id/customSearch"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/profileSearch"
+        android:layout_alignBottom="@+id/profileSearch"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/profileSearch"
+        android:text="@string/custom" 
+        android:background="@drawable/custom_button_green"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/profileSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:text="@string/searchChoice" />
+
+</RelativeLayout>
