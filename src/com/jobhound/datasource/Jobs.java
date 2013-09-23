@@ -43,4 +43,9 @@ public class Jobs {
 	{
 		this.link=link;
 	}
+	
+	@Override
+	  public String toString() {
+	    return description;
+	  }
 }
