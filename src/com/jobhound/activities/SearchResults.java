@@ -38,6 +38,8 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 		setContentView(R.layout.search_results);
 		job = new JobSearch();
 		populateList();
+		
+		back.setOnClickListener(this);
 	}
 
 	

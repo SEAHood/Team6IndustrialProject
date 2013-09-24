@@ -95,7 +95,7 @@
         	 android:layout_marginBottom="15dp"
         	 android:layout_marginRight="10dp"
         	 android:text="@string/apply"
-             />
+             android:background="@drawable/custom_button_green"/>
          
           <Button
              android:id="@+id/backButtonResult"
@@ -104,8 +104,8 @@
         	 android:layout_alignParentBottom="true"
         	 android:layout_alignParentLeft="true"
         	 android:layout_marginBottom="15dp"
-        	 android:layout_marginRight="10dp"
+        	 android:layout_marginLeft="10dp"
         	 android:text="@string/back"
-             />
+             android:background="@drawable/custom_button_green" />
          
 </RelativeLayout>

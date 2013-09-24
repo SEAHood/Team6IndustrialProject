@@ -1,0 +1,33 @@
+#
+# --table-start--
+dataClass=com.jobhound.datasource.DiaryEntries
+tableName=Diary
+# --table-fields-start--
+# --field-start--
+fieldName=date
+id=true
+# --field-end--
+# --field-start--
+fieldName=action
+# --field-end--
+# --field-start--
+fieldName=employer
+# --field-end--
+# --field-start--
+fieldName=furtherAction
+# --field-end--
+# --field-start--
+fieldName=fdate
+# --field-end--
+# --field-start--
+fieldName=suitablility
+# --field-end--
+# --field-start--
+fieldName=reason
+# --field-end--
+# --field-start--
+fieldName=comments
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

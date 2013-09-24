@@ -1,26 +1,50 @@
 package com.jobhound.datasource;
 
+import com.j256.ormlite.field.DatabaseField;
+
 public class DiaryEntries {
 
-	private String action;
-	private String employer;
+	public static final String DATE = "date";
+	public static final String ACTION = "action"; 
+	public static final String EMPLOYER = "employer";
+	public static final String FURTHERACTION = "furtherAction";
+	public static final String FDATE = "fdate";
+	public static final String SUITABILITY = "suitablility";
+	public static final String REASON = "reason";
+	public static final String COMMENTS = "comments";
+	
+	@DatabaseField(columnName=DATE)
 	private String date;
+	@DatabaseField(columnName=ACTION)
+	private String action;
+	@DatabaseField(columnName=EMPLOYER)
+	private String employer;
+	@DatabaseField(columnName=FURTHERACTION)
 	private String furtherAction;
+	@DatabaseField(columnName=FDATE)
 	private String fDate;
+	@DatabaseField(columnName=SUITABILITY)
 	private String suitability;
+	@DatabaseField(columnName=REASON)
 	private String reason;
+	@DatabaseField(columnName=COMMENTS)
 	private String comments;
 	
-	public DiaryEntries(String action, String employer,String date, String furtherAction, String fDate, String suitability, String reason, String comments)
+	public DiaryEntries(String date, String action, String employer,String furtherAction, String fDate, String suitability, String reason, String comments)
 	{
+		this.date = date;
 		this.action=action;
 		this.employer=employer;
-		this.date = date;
 		this.furtherAction=furtherAction;
 		this.fDate=fDate;
 		this.suitability=suitability;
 		this.reason=reason;
 		this.comments=comments;
+	}
+	
+	public DiaryEntries()
+	{
+		
 	}
 	
 	
