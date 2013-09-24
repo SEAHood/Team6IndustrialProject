@@ -6,10 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -29,6 +29,7 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 	@InjectView(R.id.back) Button back;
 	@InjectView(android.R.id.list) ListView results;
 	CustomListAdapter myAdapter;
+	Jobs selectedJob;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,20 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 		job = new JobSearch();
 		populateList();
 	}
+
+	
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		Intent openSearchMenu = new Intent("android.intent.action.SEARCH_MENU");
+    	finish();
+		startActivity(openSearchMenu);
+		overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
+	}
+
+
 
 	public void populateList() {
 		job.findJobs(this);
@@ -77,13 +92,36 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-	
+		super.onListItemClick(l, v, position, id);
+		
+		selectedJob = (Jobs) myAdapter.getItem(position);
+		
+		Bundle jobBundle = new Bundle();
+		jobBundle.putString("source", selectedJob.getSource());
+		jobBundle.putString("title", selectedJob.getTitle());
+		jobBundle.putString("description", selectedJob.getDescription());
+		jobBundle.putString("link", selectedJob.getLink());
+		
+		Intent viewJob = new Intent("android.intent.action.SINGLE_JOB_RESULT");
+		viewJob.putExtras(jobBundle);
+		startActivity(viewJob);
+		finish();
+		
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
+		switch (v.getId()){
+
+		case R.id.back:
+			Intent openSearchMenu = new Intent("android.intent.action.SEARCH_MENU");
+	    	finish();
+			startActivity(openSearchMenu);
+			overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
+			break;
+		}
 	}
 
 }
