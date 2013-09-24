@@ -21,4 +21,9 @@
     
     <!-- Search Results -->
     <string name="results">Search Results: </string>
+    
+    <!-- Search Result -->
+    <string name="source">Source: </string>
+    <string name="description">Description: </string>
+    <string name="apply">Apply!</string>
 </resources>

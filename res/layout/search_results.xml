@@ -14,13 +14,13 @@
         android:text="@string/results" />
     
     <ListView
-        android:id="@+id/searchResultList"
+        android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ResultBanner"
         android:layout_above="@+id/back"
         android:divider="#57DA95"
-    	android:dividerHeight="1dp">
+    	android:dividerHeight="4dp">
     </ListView>
 
     <Button

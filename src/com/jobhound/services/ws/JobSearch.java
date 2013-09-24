@@ -17,6 +17,7 @@ import com.jobhound.activities.SearchResults;
 import com.jobhound.interfaces.JobWebInterface;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
@@ -26,48 +27,58 @@ public class JobSearch implements JobWebInterface {
 	public JSONObject jobResults;
 	public JSONArray results;
 	private HttpClient client;
-	String getURL = "http://samhood.net/jh/twitter.php";
+	String getURL = "http://samhood.net/jh/search.php";
 	public String statusCode;
 	public Context parentContext;
-	
-	public void findJobs(Context sentContext)
-	{
+
+	private ProgressDialog mProgressDialog;
+
+	public void findJobs(Context sentContext) {
 		parentContext = sentContext;
+		showProgressDialog("Searching Jobs...");
 		new getJobsThread().execute();
 	}
-	
-public class getJobsThread extends AsyncTask<String, Integer, String> {
-		
-		
-		
+
+	public void showProgressDialog(String msg) {
+		mProgressDialog = new ProgressDialog(parentContext);
+		mProgressDialog.setMessage(msg);
+		mProgressDialog.setIndeterminate(true);
+		mProgressDialog.setCancelable(false);
+		mProgressDialog.show();
+	}
+
+	// Closes dialog box to avoid leaking windows
+	public void closeProgressDialog() {
+		mProgressDialog.dismiss();
+	}
+
+	public class getJobsThread extends AsyncTask<String, Integer, String> {
+
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
-		
-			
+
 			client = new DefaultHttpClient();
 
 			HttpGet get = new HttpGet(getURL);
 			HttpResponse response;
-			
+
 			int code = 0;
-			
+
 			try {
-							
+
 				response = client.execute(get);
-				
+
 				code = response.getStatusLine().getStatusCode();
-				
-				if(code == 200)
-				{
+
+				if (code == 200) {
 					HttpEntity entity = response.getEntity();
-					
+
 					String data = EntityUtils.toString(entity);
-					results = new JSONArray(data);			
-					jobResults = new JSONObject(data);				
+					results = new JSONArray(data);
+				//	jobResults = new JSONObject(data);
 				}
-			
-				
+
 			} catch (ClientProtocolException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -78,63 +89,36 @@ public class getJobsThread extends AsyncTask<String, Integer, String> {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
 			return Integer.toString(code);
-			
-			
-			
+
 		}
 
 		@Override
 		protected void onPostExecute(String code) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(code);
-			
+
 			statusCode = code;
-		//	closeProgressDialog();
-			
+			closeProgressDialog();
+
 			processDownload();
 
-			
 		}
-	
-	
+
 	}
 
-
-	public void processDownload()
-	{if(statusCode.equals("200"))
-	{
-	/*	if(jobResults.isNull("id"))
-		{
-			// Display dialog to say that the ID entered by the user doesn't exist
+	public void processDownload() {
+		if (statusCode.equals("200")) {
+			((SearchResults) parentContext).receiveUserDetails(results);
+		} else {
 			Dialog d = new Dialog(parentContext);
-			d.setTitle("Incorrect User ID");
+			d.setTitle("Server side error !");
 			TextView tv = new TextView(parentContext);
-			tv.setText("No account associated with user ID, please check and try again");
+			tv.setText("Terminated with status code : " + statusCode);
 			d.setContentView(tv);
 			d.show();
 		}
-		else
-	*/	{
-			((SearchResults) parentContext).receiveUserDetails(results);
-	/*	}
-		
-//	}
-//	else
-	{
-		Dialog d = new Dialog(parentContext);
-		d.setTitle("Server side error !");
-		TextView tv = new TextView(parentContext);
-		tv.setText("Terminated with status code : " + statusCode );
-		d.setContentView(tv);
-		d.show();				
-	}
-	*/
-	
-	
-	}
-	}
+
 	}
 }

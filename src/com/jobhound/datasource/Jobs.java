@@ -4,13 +4,15 @@ public class Jobs {
 
 	private String source;
 	private String description;
+	private String title;
 	private String link;
 	
 	
-	public Jobs(String source, String description, String link)
+	public Jobs(String source, String description,String title, String link)
 	{
 		this.source=source;
 		this.description=description;
+		this.title = title;
 		this.link=link;
 	}
 	
@@ -44,8 +46,13 @@ public class Jobs {
 		this.link=link;
 	}
 	
-	@Override
-	  public String toString() {
-	    return description;
-	  }
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public void setTitle(String title)
+	{
+		this.title=title;
+	}
 }

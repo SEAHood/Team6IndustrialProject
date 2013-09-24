@@ -7,6 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,18 +17,19 @@ import com.jobhound.R;
 import com.jobhound.datasource.Jobs;
 import com.jobhound.interfaces.JobWebInterface;
 import com.jobhound.services.ws.JobSearch;
+import com.jobhound.activities.CustomListAdapter;
 
-import roboguice.activity.RoboActivity;
+import roboguice.activity.RoboListActivity;
 import roboguice.inject.InjectView;
 
-public class SearchResults extends RoboActivity {
-	
+public class SearchResults extends RoboListActivity implements OnClickListener {
+
 	JobWebInterface job;
-	
+
 	@InjectView(R.id.back) Button back;
-	@InjectView(R.id.searchResultList) ListView results;
-	
-	
+	@InjectView(android.R.id.list) ListView results;
+	CustomListAdapter myAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -36,42 +39,50 @@ public class SearchResults extends RoboActivity {
 		populateList();
 	}
 
-	public void populateList()
-	{
+	public void populateList() {
 		job.findJobs(this);
 	}
 
 	public void receiveUserDetails(JSONArray jobResults) {
 		// TODO Auto-generated method stub
-		try{
-			ArrayList<Jobs> JobList =  new ArrayList<Jobs>();
-			
-			if (jobResults != null) 
-			{ 
-				   for (int i=0;i<jobResults.length();i++)
-				   { 
-					   JSONArray jobParse = new JSONArray();
-					   String testresult = jobResults.get(i).toString();
-					   jobParse = new JSONArray(testresult);
-					   for(int x=0;x<jobParse.length();x++)
-					   {
-						   JSONObject jobPost = new JSONObject();
-						   jobPost = jobParse.getJSONObject(x);
-						   Jobs jobs =new Jobs(jobPost.getString("source"),jobPost.getString("description"),jobPost.getString("url"));
-						   JobList.add(jobs);
-					   }
-					   
-					   
-				   }
-				   ArrayAdapter<Jobs> arrayAdapter =      
-					         new ArrayAdapter<Jobs>(this,android.R.layout.simple_list_item_1, JobList);
-					         results.setAdapter(arrayAdapter); 
+		try {
+			ArrayList<Jobs> JobList = new ArrayList<Jobs>();
+
+			if (jobResults != null) {
+				for (int i = 0; i < jobResults.length(); i++) {
+					JSONArray jobParse = new JSONArray();
+					String testresult = jobResults.get(i).toString();
+					jobParse = new JSONArray(testresult);
+
+					for (int x = 0; x < jobParse.length(); x++) {
+						JSONObject jobPost = new JSONObject();
+						jobPost = jobParse.getJSONObject(x);
+						Jobs jobs = new Jobs(jobPost.getString("source"),
+								jobPost.getString("description"),
+								jobPost.getString("title"),
+								jobPost.getString("url"));
+						JobList.add(jobs);
+					}
+				}
+				
+				results.setAdapter( myAdapter = new CustomListAdapter(JobList, this, "SearchResults"));
 			}
-			
-	} catch (JSONException e) {
+
+		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-		e.printStackTrace();
+			e.printStackTrace();
 		}
+
+	}
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+	
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
 		
 	}
 
