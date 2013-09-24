@@ -8,37 +8,104 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:text="@string/source" />
         
         <TextView
-            android:id="@+id/sourceText"
+            android:id="@+id/sourceContent"
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
        		android:layout_alignParentTop="true"
-       	 	android:layout_marginTop="15dp"
+       	 	android:layout_marginTop="10dp"
+       	 	android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/bannerSource"
             />
+           
+        
+        <View
+        android:id="@+id/view_Line1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/bannerSource"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#57DA95"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+        
+        <TextView
+        android:id="@+id/bannerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_Line1"
+         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/title" />
+        
+        <TextView
+        android:id="@+id/titleContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/view_Line1"
+        android:layout_toRightOf="@+id/bannerTitle"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp" />
+        
+           <View
+        android:id="@+id/view_Line2"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/bannerTitle"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#57DA95"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
         
          <TextView
         android:id="@+id/descriptionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_below="@+id/bannerSource"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/view_Line2"
         android:text="@string/description" />
 
          <TextView
-            android:id="@+id/descriptionText"
+            android:id="@+id/descriptionContent"
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-       		android:layout_alignParentTop="true"
        	 	android:layout_marginTop="15dp"
+       	 	android:layout_marginLeft="20dp"
             android:layout_below="@+id/descriptionTitle"
             />
+         
+         <Button
+             android:id="@+id/applyButton"
+             android:layout_width="wrap_content"
+        	 android:layout_height="wrap_content"
+        	 android:layout_alignParentBottom="true"
+        	 android:layout_alignParentRight="true"
+        	 android:layout_marginBottom="15dp"
+        	 android:layout_marginRight="10dp"
+        	 android:text="@string/apply"
+             />
+         
+          <Button
+             android:id="@+id/backButtonResult"
+             android:layout_width="wrap_content"
+        	 android:layout_height="wrap_content"
+        	 android:layout_alignParentBottom="true"
+        	 android:layout_alignParentLeft="true"
+        	 android:layout_marginBottom="15dp"
+        	 android:layout_marginRight="10dp"
+        	 android:text="@string/back"
+             />
          
 </RelativeLayout>
