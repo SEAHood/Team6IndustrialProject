@@ -47,6 +47,10 @@ public class MainMenu extends RoboActivity implements OnClickListener  {
 			break;
 			
 		case R.id.buttonDiary:
+			Intent openDiary = new Intent("android.intent.action.DIARY_LAYOUT");
+	    	finish();
+			startActivity(openDiary);
+			 overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
 			break;
 			
 		case R.id.buttonSaved:
