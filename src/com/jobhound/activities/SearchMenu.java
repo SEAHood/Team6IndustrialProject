@@ -14,6 +14,7 @@ public class SearchMenu extends RoboActivity implements OnClickListener {
 	
 	@InjectView(R.id.profileSearch) Button profileSearch;
 	@InjectView(R.id.customSearch) Button customSearch;
+	@InjectView(R.id.back) Button back;
 
 	
 	@Override
@@ -34,6 +35,8 @@ public class SearchMenu extends RoboActivity implements OnClickListener {
 		setContentView(R.layout.search_menu);
 		
 		profileSearch.setOnClickListener(this);
+		back.setOnClickListener(this);
+		
 	}
 
 
@@ -49,8 +52,16 @@ public class SearchMenu extends RoboActivity implements OnClickListener {
 			Intent openSearchResults = new Intent("android.intent.action.SEARCH_RESULTS");
 	    	finish();
 			startActivity(openSearchResults);
-			 overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
+			overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
 			
+			
+			break;
+			
+		case R.id.back:
+			Intent openSearchMenu = new Intent("android.intent.action.MAIN_MENU");
+	    	finish();
+			startActivity(openSearchMenu);
+			overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
 			
 			break;
 			

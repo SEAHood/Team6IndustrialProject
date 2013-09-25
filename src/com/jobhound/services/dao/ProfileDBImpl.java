@@ -127,4 +127,19 @@ public class ProfileDBImpl extends BaseService implements ProfileDBInterface {
 		
 	}
 
+
+
+	@Override
+	public void updateProgress(int progress) {
+		// TODO Auto-generated method stub
+		try {
+			UpdateBuilder<Profile, Integer> updateProgress = profileDAO.updateBuilder();
+			updateProgress.updateColumnValue(Profile.PROGRESS,progress);
+			updateProgress.update();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
