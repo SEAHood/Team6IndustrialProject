@@ -2,10 +2,6 @@ package com.jobhound.activities;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,9 +39,9 @@ public class DiaryLog extends RoboListActivity implements OnClickListener {
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		Intent openSearchMenu = new Intent("android.intent.action.SEARCH_MENU");
+		Intent openMainMenu = new Intent("android.intent.action.MAIN_MENU");
     	finish();
-		startActivity(openSearchMenu);
+		startActivity(openMainMenu);
 		overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
 	}
 
@@ -56,27 +52,25 @@ public class DiaryLog extends RoboListActivity implements OnClickListener {
 		results.setAdapter( myAdapter = new CustomListAdapter(null,diaryLog, this, "DiaryLog"));
 	}
 
-	
-	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		
 		diary_entry = (DiaryEntry) myAdapter.getItem(position);
 		
-		Bundle jobBundle = new Bundle();
-		jobBundle.putString("date", diary_entry.getDate());
-		jobBundle.putString("action", diary_entry.getAction());
-		jobBundle.putString("employer", diary_entry.getEmployer());
-		jobBundle.putString("further_action", diary_entry.getFurtherAction());
-		jobBundle.putString("further_date", diary_entry.getFDate());
-		jobBundle.putString("suitability", diary_entry.getSuitability());
-		jobBundle.putString("reason", diary_entry.getReason());
-		jobBundle.putString("comments", diary_entry.getComments());
+		Bundle diaryBundle = new Bundle();
+		diaryBundle.putString("date", diary_entry.getDate());
+		diaryBundle.putString("action", diary_entry.getAction());
+		diaryBundle.putString("employer", diary_entry.getEmployer());
+		diaryBundle.putString("further_action", diary_entry.getFurtherAction());
+		diaryBundle.putString("further_date", diary_entry.getFDate());
+		diaryBundle.putString("suitability", diary_entry.getSuitability());
+		diaryBundle.putString("reason", diary_entry.getReason());
+		diaryBundle.putString("comments", diary_entry.getComments());
 		
-		Intent viewJob = new Intent("android.intent.action.SINGLE_JOB_RESULT");
-		viewJob.putExtras(jobBundle);
-		startActivity(viewJob);
+		Intent viewEntry = new Intent("android.intent.action.DIARY_VIEW");
+		viewEntry.putExtras(diaryBundle);
+		startActivity(viewEntry);
 		finish();
 	}
 
