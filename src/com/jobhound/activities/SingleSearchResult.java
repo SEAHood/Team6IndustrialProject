@@ -1,6 +1,12 @@
 package com.jobhound.activities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.jobhound.R;
+import com.jobhound.datasource.DiaryEntries;
+import com.jobhound.interfaces.DiaryDBInterface;
+import com.jobhound.services.dao.DiaryDBImpl;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,11 +30,14 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 
 	String link;
 	
+	DiaryDBInterface diaryDB;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.single_job_result);
+		diaryDB = new DiaryDBImpl(this);
 		
 		Bundle jobResult = getIntent().getExtras();
 		
@@ -79,6 +88,18 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 				        	Uri uriUrl = Uri.parse(link);
 					        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
 					        startActivity(launchBrowser);
+					        
+					        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
+							String dateLogged = sdf.format(new Date());
+					        
+					        DiaryEntries applyJob = new DiaryEntries();
+					        applyJob.setDate(dateLogged);
+					        applyJob.setAction("Looked into applying for Job via JobHound.");
+					        applyJob.setEmployer(SourceText.getText().toString());
+					        applyJob.setComments(DescriptionText.getText().toString());
+					        
+					        diaryDB.addEntry(applyJob);
+					        
 							break;
 							
 				        case DialogInterface.BUTTON_NEGATIVE:

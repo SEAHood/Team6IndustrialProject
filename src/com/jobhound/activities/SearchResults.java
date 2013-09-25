@@ -82,7 +82,7 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 					}
 				}
 				
-				results.setAdapter( myAdapter = new CustomListAdapter(JobList, this, "SearchResults"));
+				results.setAdapter( myAdapter = new CustomListAdapter(JobList,null, this, "SearchResults"));
 			}
 
 		} catch (JSONException e) {
