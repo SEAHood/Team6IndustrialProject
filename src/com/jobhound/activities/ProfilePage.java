@@ -1,12 +1,14 @@
 package com.jobhound.activities;
 
 import com.jobhound.R;
+import com.jobhound.datasource.Profile;
+import com.jobhound.interfaces.ProfileDBInterface;
+import com.jobhound.services.dao.ProfileDBImpl;
 
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
@@ -32,18 +33,15 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 	@InjectView(R.id.pb_horizontal) ProgressBar pbHorizontal;
 	@InjectView(R.id.jsaProgress) TextView jsaPreogress;
 	@InjectView(R.id.tv_progress_horizontal) TextView tv_progress_horizontal;
-	@InjectView(R.id.btn_go) Button btn_go;
 	@InjectView(R.id.rl_progress_bar_set) RelativeLayout rl_progress_bar_set;
-	//@InjectView(R.id.btn_save) Button btn_save;
+	@InjectView(R.id.btn_save) Button btn_save;
 
-	
+	ProfileDBInterface profileDB;
 	
 	
 	private int progress = 0;  
+	boolean existingProfile=false;
 
-	
-//	@InjectView(R.id.workHours) TextView workHours;
-//	@InjectView(R.id.spinner2) Spinner spinner2;
 	
 	
 	
@@ -64,39 +62,30 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile_page);
 
+		profileDB = new ProfileDBImpl(this);
+		
+		Profile checkProfile = profileDB.getProfile();
+		
+		if (checkProfile!=null)
+		{
+			progress = checkProfile.getProgress();
+			postProgress(progress);
+			job1.setText(checkProfile.getJob1());
+			job2.setText(checkProfile.getJob2());
+			job3.setText(checkProfile.getJob3());
+			existingProfile=true;
+		}
+		
 		Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
 		        R.array.contract_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner1.setAdapter(adapter);	
 		
-		btn_go.setOnClickListener(new ButtonsListener());
+		btn_save.setOnClickListener(this);
 	}
 	
-	 public class ButtonsListener implements OnClickListener, android.view.View.OnClickListener {  
-          public void onClick(View v) {  
-        	  rl_progress_bar_set.setVisibility(View.VISIBLE);  
-        	 
-        	  
-              switch (v.getId()) {  
-    
-              case R.id.btn_go:  
-                  
-				if(progress  < pbHorizontal.getMax()) {  
-                      progress = progress + 10;    // update progress  
-                      postProgress(progress);  
-    
-                  } else {  
-					rl_progress_bar_set.setVisibility(View.GONE);  
-                      progress = 0;  
-                      Toast.makeText(ProfilePage.this, "Finish", Toast.LENGTH_SHORT).show();  
-                  }  
-                  break;  
-    
-              default:  
-                  return;  
-              }  
-	 }
+	
 
           private void postProgress(int progress) {  
               pbHorizontal.setProgress(progress);  
@@ -108,17 +97,34 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
                   pbHorizontal.setSecondaryProgress(progress + 5);  
               }  
           }
-          
-		@Override
-		public void onClick(DialogInterface arg0, int arg1) {
-			// TODO Auto-generated method stub
-			
-		}  
-	 }
+         
 
 	@Override
-	public void onClick(DialogInterface dialog, int which) {
+	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
+		switch (arg0.getId()){
+
+		case R.id.btn_save:
+			
+			if(existingProfile==true)
+			{
+				Profile updateProfile = 
+						new Profile(job1.getText().toString(),job2.getText().toString(),job3.getText().toString(),spinner1.toString(),progress);
+				
+				profileDB.updateProfile(updateProfile);
+			}
+			else
+			{
+				Profile newProfile = 
+						new Profile(job1.getText().toString(),job2.getText().toString(),job3.getText().toString(),spinner1.toString(),progress);
+				
+				profileDB.saveProfile(newProfile);
+			}
+			
+			break;
 		
+		
+		}
 	}
+
 }

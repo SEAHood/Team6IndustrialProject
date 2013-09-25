@@ -24,6 +24,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // the DAO object we use to access the SimpleData table
     private Dao<DiaryEntry, Integer> diaryDAO;
     private RuntimeExceptionDao<DiaryEntry, Integer> diaryRuntimeDAO;
+    private Dao<Profile, Integer> profileDAO;
+    private RuntimeExceptionDao<Profile, Integer> profileRuntimeDAO;
 	
 	 public DatabaseHelper(Context context) {
 	        super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -33,7 +35,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	public void onCreate(SQLiteDatabase arg0, ConnectionSource connectionSource) {
 		// TODO Auto-generated method stub
 		try {
-			TableUtils.createTable(connectionSource, DiaryEntry.class);	
+			TableUtils.createTable(connectionSource, DiaryEntry.class);
+			TableUtils.createTable(connectionSource, Profile.class);
 		}catch(SQLException e) {
             throw new RuntimeException(e);
         }
@@ -55,6 +58,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Returns the Database Access Object (DAO) for our SimpleData class. It will create it or just give the cached
      * value.
      */
+    public Dao<Profile, Integer> getProfileDAO() throws SQLException
+    {
+    	if (profileDAO == null) {
+    		profileDAO = getDao(Profile.class);
+        }
+        return profileDAO;	
+    }
     public Dao<DiaryEntry, Integer> getDiaryDAO() throws SQLException
     {
     	if (diaryDAO == null) {
@@ -67,11 +77,18 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our SimpleData class. It will
      * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
      */
-    public RuntimeExceptionDao<DiaryEntry, Integer> getProfileDataDao() {
+    public RuntimeExceptionDao<DiaryEntry, Integer> getDiaryDataDao() {
         if (diaryRuntimeDAO == null) {
         	diaryRuntimeDAO = getRuntimeExceptionDao(DiaryEntry.class);
         }
         return diaryRuntimeDAO;
+    }
+    
+    public RuntimeExceptionDao<Profile, Integer> getProfileDataDao() {
+        if (profileRuntimeDAO == null) {
+        	profileRuntimeDAO = getRuntimeExceptionDao(Profile.class);
+        }
+        return profileRuntimeDAO;
     }
     
     /**
@@ -81,5 +98,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void close() {
         super.close();
         diaryRuntimeDAO = null;
+        profileRuntimeDAO = null;
     }
 }

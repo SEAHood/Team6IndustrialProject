@@ -4,12 +4,12 @@ import com.j256.ormlite.field.DatabaseField;
 
 public class Profile {
 
-	private static final String ID = "id";
-	private static final String JOB1 ="job1";
-	private static final String JOB2 ="job2";
-	private static final String JOB3 ="job3";
-	private static final String PARTFULL ="partFull";
-	private static final String PROGRESS ="progress";
+	public static final String ID = "id";
+	public static final String JOB1 ="job1";
+	public static final String JOB2 ="job2";
+	public static final String JOB3 ="job3";
+	public static final String PARTFULL ="partFull";
+	public static final String PROGRESS ="progress";
 	
 	@DatabaseField(generatedId=true, columnName = ID)
 	public int id;
@@ -81,6 +81,10 @@ public class Profile {
 	public int getProgress()
 	{
 		return progress;
+	}
+
+	public int getId() {
+		return id;
 	}
 	
 }

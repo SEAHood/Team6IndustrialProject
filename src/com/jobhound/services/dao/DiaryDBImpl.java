@@ -18,8 +18,7 @@ public class DiaryDBImpl extends BaseService implements DiaryDBInterface {
 
 	public DiaryDBImpl(Context theContext) {
 		context = theContext;
-		diaryDAO = getHelper(context)
-				.getRuntimeExceptionDao(DiaryEntry.class);
+		diaryDAO = getHelper(context).getRuntimeExceptionDao(DiaryEntry.class);
 	}
 
 	@Override
