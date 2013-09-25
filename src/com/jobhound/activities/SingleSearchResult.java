@@ -6,7 +6,9 @@ import java.util.Date;
 import com.jobhound.R;
 import com.jobhound.datasource.DiaryEntry;
 import com.jobhound.interfaces.DiaryDBInterface;
+import com.jobhound.interfaces.ProfileDBInterface;
 import com.jobhound.services.dao.DiaryDBImpl;
+import com.jobhound.services.dao.ProfileDBImpl;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -31,6 +33,7 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 	String link;
 	
 	DiaryDBInterface diaryDB;
+	ProfileDBInterface profileDB;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.single_job_result);
 		diaryDB = new DiaryDBImpl(this);
-		
+		profileDB = new ProfileDBImpl(this);
 		Bundle jobResult = getIntent().getExtras();
 		
 		SourceText.setText(jobResult.getString("source"));
@@ -99,6 +102,9 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 					        applyJob.setComments(DescriptionText.getText().toString());
 					        
 					        diaryDB.addEntry(applyJob);
+					        
+					        int progress = (profileDB.getProgress() +10);
+					        profileDB.updateProgress(progress);
 					        
 							break;
 							

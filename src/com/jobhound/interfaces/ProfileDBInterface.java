@@ -9,5 +9,6 @@ public interface ProfileDBInterface {
 	public Profile getProfile();
 	public void updateProfile(Profile profile);
 	public int getProgress();
+	public void updateProgress(int progress);
 
 }

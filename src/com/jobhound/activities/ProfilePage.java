@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
@@ -112,6 +113,7 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 						new Profile(job1.getText().toString(),job2.getText().toString(),job3.getText().toString(),spinner1.toString(),progress);
 				
 				profileDB.updateProfile(updateProfile);
+				Toast.makeText(getApplicationContext(), "Profile Updated", Toast.LENGTH_LONG).show();
 			}
 			else
 			{
@@ -119,7 +121,14 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 						new Profile(job1.getText().toString(),job2.getText().toString(),job3.getText().toString(),spinner1.toString(),progress);
 				
 				profileDB.saveProfile(newProfile);
+				Toast.makeText(getApplicationContext(), "Profile Saved", Toast.LENGTH_LONG).show();
 			}
+			
+			
+			Intent openProfile = new Intent("android.intent.action.MAIN_MENU");
+	    	finish();
+			startActivity(openProfile);
+			overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
 			
 			break;
 		
