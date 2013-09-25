@@ -61,20 +61,12 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile_page);
 
-		//Spinner1 : Contract type
 		Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
 		        R.array.contract_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner1.setAdapter(adapter);	
 		
-		//Spinner2 : Work Hours
-		/**		Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
-				ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
-				        R.array.workHours_array, android.R.layout.simple_spinner_item);
-				adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				spinner2.setAdapter(adapter1);
-		**/
 		btn_go.setOnClickListener(new ButtonsListener());
 	}
 	
