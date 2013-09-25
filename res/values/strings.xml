@@ -15,9 +15,22 @@
     <string name="custom">Custom</string>
     
     <!-- Profile Page -->
+     <string name="titleProfile">Profile </string>
     <string name="job1">Job 1: </string>
     <string name="job2">Job 2: </string>
     <string name="job3">Job 3: </string>
+    <string name="contractType">Contract Type: </string>
+    <string-array name="contract_array">
+        <item>Permanent</item>
+        <item>Temporary</item>
+    </string-array>
+    <string name="workHours">Work Hours: </string>
+    <string-array name="workHours_array">
+        <item>0-16</item>
+        <item>16-32</item>
+        <item>>32</item>
+    </string-array>
+    <string name="jsaProgress">JSA Progress: </string>
     
     <!-- Search Results -->
     <string name="results">Search Results: </string>
@@ -28,4 +41,11 @@
     <string name="description">Description: </string>
     <string name="apply">Apply!</string>
     <string name="date">Date</string>
+    <string name="employer">Employer</string>
+    <string name="further_action">Further Action</string>
+    <string name="action">Action</string>
+    <string name="when">When? (if applicable)</string>
+    <string name="suitability">Suitability</string>
+    <string name="reason">Reason</string>
+    <string name="comments">Comments</string>
 </resources>
