@@ -20,7 +20,7 @@ fieldName=furtherAction
 fieldName=fdate
 # --field-end--
 # --field-start--
-fieldName=suitablility
+fieldName=suitability
 # --field-end--
 # --field-start--
 fieldName=reason
