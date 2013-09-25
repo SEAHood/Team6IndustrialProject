@@ -13,8 +13,6 @@ import com.jobhound.R;
 
 
 public class DiaryView extends RoboActivity implements OnClickListener{
-
-	@InjectView(R.id.back) Button back;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +35,6 @@ public class DiaryView extends RoboActivity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
-		
-
 		switch (v.getId()){
 
 		case R.id.Submit:
