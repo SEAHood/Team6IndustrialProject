@@ -2,7 +2,7 @@ package com.jobhound.datasource;
 
 import com.j256.ormlite.field.DatabaseField;
 
-public class DiaryEntries {
+public class DiaryEntry {
 
 	public static final String DATE = "date";
 	public static final String ACTION = "action"; 
@@ -30,7 +30,7 @@ public class DiaryEntries {
 	@DatabaseField(columnName=COMMENTS)
 	private String comments;
 	
-	public DiaryEntries(String date, String action, String employer,String furtherAction, String fDate, String suitability, String reason, String comments)
+	public DiaryEntry(String date, String action, String employer,String furtherAction, String fDate, String suitability, String reason, String comments)
 	{
 		this.date = date;
 		this.action=action;
@@ -42,11 +42,10 @@ public class DiaryEntries {
 		this.comments=comments;
 	}
 	
-	public DiaryEntries()
+	public DiaryEntry()
 	{
 		
 	}
-	
 	
 	public String getAction()
 	{
@@ -68,7 +67,7 @@ public class DiaryEntries {
 		this.employer=employer;
 	}
 	
-	public String getdate()
+	public String getDate()
 	{
 		return date;
 	}
@@ -127,5 +126,4 @@ public class DiaryEntries {
 	{
 		this.comments=comments;
 	}
-	
 }

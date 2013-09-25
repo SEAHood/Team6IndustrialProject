@@ -2,13 +2,13 @@ package com.jobhound.interfaces;
 
 import java.util.ArrayList;
 
-import com.jobhound.datasource.DiaryEntries;
+import com.jobhound.datasource.DiaryEntry;
 
 public interface DiaryDBInterface {
 	
-	public ArrayList<DiaryEntries> getList();
-	public void addEntry(DiaryEntries entry);
-	public void editEntry(DiaryEntries editEntry);
+	public ArrayList<DiaryEntry> getList();
+	public void addEntry(DiaryEntry entry);
+	public void editEntry(DiaryEntry editEntry);
 	public void deleteEntry(String date);
 
 }
