@@ -1,6 +1,6 @@
 #
 # --table-start--
-dataClass=com.jobhound.datasource.DiaryEntries
+dataClass=com.jobhound.datasource.DiaryEntry
 tableName=Diary
 # --table-fields-start--
 # --field-start--
@@ -27,6 +27,32 @@ fieldName=reason
 # --field-end--
 # --field-start--
 fieldName=comments
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.jobhound.datasource.Profile
+tableName=Profile
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedID=true
+# --field-end--
+# --field-start--
+fieldName=job1
+# --field-end--
+# --field-start--
+fieldName=job2
+# --field-end--
+# --field-start--
+fieldName=job3
+# --field-end--
+# --field-start--
+fieldName=partFull
+# --field-end--
+# --field-start--
+fieldName=progress
 # --field-end--
 # --table-fields-end--
 # --table-end--
