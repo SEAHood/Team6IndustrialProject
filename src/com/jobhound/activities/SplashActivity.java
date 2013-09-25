@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
 					} finally {
 						finish();
 						// Check if a profile exists on the DB
-							Intent openMainMenu = new Intent("android.intent.action.MAIN_MENU_LAYOUT");
+							Intent openMainMenu = new Intent("android.intent.action.MAIN_MENU");
 							startActivity(openMainMenu);
 							finish();
 

@@ -34,6 +34,9 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 	@InjectView(R.id.tv_progress_horizontal) TextView tv_progress_horizontal;
 	@InjectView(R.id.btn_go) Button btn_go;
 	@InjectView(R.id.rl_progress_bar_set) RelativeLayout rl_progress_bar_set;
+	//@InjectView(R.id.btn_save) Button btn_save;
+
+	
 	
 	
 	private int progress = 0;  
@@ -48,7 +51,7 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		Intent openProfile = new Intent("android.intent.action.MAIN_MENU_LAYOUT");
+		Intent openProfile = new Intent("android.intent.action.MAIN_MENU");
     	finish();
 		startActivity(openProfile);
 		overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
