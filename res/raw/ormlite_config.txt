@@ -17,7 +17,7 @@ fieldName=employer
 fieldName=furtherAction
 # --field-end--
 # --field-start--
-fieldName=fdate
+fieldName=fDate
 # --field-end--
 # --field-start--
 fieldName=suitability

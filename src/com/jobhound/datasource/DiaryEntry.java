@@ -8,7 +8,7 @@ public class DiaryEntry {
 	public static final String ACTION = "action"; 
 	public static final String EMPLOYER = "employer";
 	public static final String FURTHERACTION = "furtherAction";
-	public static final String FDATE = "fdate";
+	public static final String FDATE = "fDate";
 	public static final String SUITABILITY = "suitablility";
 	public static final String REASON = "reason";
 	public static final String COMMENTS = "comments";
