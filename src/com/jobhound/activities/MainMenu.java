@@ -39,11 +39,14 @@ public class MainMenu extends RoboActivity implements OnClickListener  {
 	    	finish();
 			startActivity(openSearchMenu);
 			 overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
-			
-			
+			 
 			break;
 			
 		case R.id.buttonProfile:
+			Intent openProfile = new Intent("android.intent.action.PROFILE_PAGE");
+	    	finish();
+			startActivity(openProfile);
+			 overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
 			break;
 			
 		case R.id.buttonDiary:

@@ -20,7 +20,7 @@ public class SearchMenu extends RoboActivity implements OnClickListener {
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		Intent openSearchMenu = new Intent("android.intent.action.MAIN_MENU_LAYOUT");
+		Intent openSearchMenu = new Intent("android.intent.action.MAIN_MENU");
     	finish();
 		startActivity(openSearchMenu);
 		overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
