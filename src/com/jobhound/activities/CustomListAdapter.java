@@ -2,7 +2,7 @@ package com.jobhound.activities;
 
 import java.util.ArrayList;
 
-import com.jobhound.datasource.DiaryEntries;
+import com.jobhound.datasource.DiaryEntry;
 import com.jobhound.datasource.Jobs;
 import com.jobhound.R;
 
@@ -16,12 +16,12 @@ import android.widget.TextView;
 public class CustomListAdapter extends BaseAdapter {
 	
 	private ArrayList<Jobs> _data0;
-	private ArrayList<DiaryEntries> _data1;
+	private ArrayList<DiaryEntry> _data1;
 	
 	Context _c;
     String senderParent;
     
-    CustomListAdapter(ArrayList<Jobs> data0,ArrayList<DiaryEntries> data1, Context c, String parent)
+    CustomListAdapter(ArrayList<Jobs> data0,ArrayList<DiaryEntry> data1, Context c, String parent)
     {
     	senderParent = parent;
     	

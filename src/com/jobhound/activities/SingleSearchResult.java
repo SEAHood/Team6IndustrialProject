@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.jobhound.R;
-import com.jobhound.datasource.DiaryEntries;
+import com.jobhound.datasource.DiaryEntry;
 import com.jobhound.interfaces.DiaryDBInterface;
 import com.jobhound.services.dao.DiaryDBImpl;
 
@@ -92,7 +92,7 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 					        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
 							String dateLogged = sdf.format(new Date());
 					        
-					        DiaryEntries applyJob = new DiaryEntries();
+					        DiaryEntry applyJob = new DiaryEntry();
 					        applyJob.setDate(dateLogged);
 					        applyJob.setAction("Looked into applying for Job via JobHound.");
 					        applyJob.setEmployer(SourceText.getText().toString());
