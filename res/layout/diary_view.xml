@@ -8,15 +8,15 @@
         android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBaseline="@+id/DateName"
+        android:layout_alignBottom="@+id/DateName"
         android:layout_marginLeft="54dp"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@+id/DateName"
         android:background="@drawable/custom_button_green"
-        android:text="@string/PickDate"/>"
+        android:text="@string/PickDate"/>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/DateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -27,20 +27,20 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/FurtherActionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/EmployerLabel"
+        android:layout_below="@+id/EmployerLabel"
         android:layout_marginTop="18dp"
         android:text="@string/further_action" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/EmployerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/ActionLabel"
+        android:layout_below="@+id/ActionLabel"
         android:layout_marginTop="19dp"
         android:text="@string/employer" />
 
@@ -49,154 +49,169 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/datePicker1"
-        android:layout_alignTop="@+id/textView5"
+        android:layout_alignTop="@+id/EmployerInput"
         android:layout_marginLeft="41dp" 
         android:background="@drawable/custom_button_green"
         android:text="@string/PickDate"/>
+
 
     <RadioGroup
         android:id="@+id/RadioSuitability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/SuitabilityLabel"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal" >
-    </RadioGroup>
-
+    
     <RadioButton
-        android:id="@+id/radio0"
+        android:id="@+id/radioYes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/radio2"
-        android:layout_alignBottom="@+id/radio2"
-        android:layout_alignRight="@+id/textView2"
-        android:checked="true"
+        android:layout_marginRight="14dp"
         android:text="@string/Yes" />
 
+        <RadioButton
+            android:id="@+id/radioUnsure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Unsure" />
+
+    <RadioButton
+        android:id="@+id/radioNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/No" />
+    
+    </RadioGroup>
+    
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/ActionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/DateName"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp"
         android:text="@string/action" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/ReasonLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_below="@+id/radio0"
+        android:layout_alignLeft="@+id/SuitabilityLabel"
+        android:layout_below="@+id/RadioSuitability"
         android:text="@string/reason" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/CommentsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_centerVertical="true"
-        android:text="@string/suitability" />
-
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/datePicker1"
-        android:layout_alignTop="@+id/RadioSuitability"
-        android:text="@string/Unsure" />
-
-    <RadioButton
-        android:id="@+id/radio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/radio1"
-        android:layout_alignBottom="@+id/radio1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="14dp"
-        android:text="@string/No" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView7"
-        android:layout_marginTop="22dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="14dp"
+        android:layout_alignLeft="@+id/ReasonLabel"
+        android:layout_below="@+id/ReasonText"
+        android:layout_marginTop="18dp"
         android:text="@string/comments" />
 
+    <EditText
+        android:id="@+id/ReasonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CommentsLabel"
+        android:layout_below="@+id/ReasonLabel"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:gravity="top"
+        android:singleLine="false" />
+
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/whenLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Spinner01"
-        android:layout_marginTop="14dp"
-        android:layout_toLeftOf="@+id/datePicker2"
+        android:layout_alignLeft="@+id/FurtherActionLabel"
+        android:layout_below="@+id/furtherAction_spinner"
+        android:layout_marginTop="22dp"
         android:text="@string/when" />
 
-    <Spinner
-        android:id="@+id/Spinner01"
+    <TextView
+        android:id="@+id/SuitabilityLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/datePicker2"
-        android:layout_below="@+id/textView2"
-        android:entries="@array/country_arrays"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
-
-    <Spinner
-        android:id="@+id/action_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Spinner01"
-        android:layout_below="@+id/datePicker1"
-        android:entries="@array/country_arrays"
-        android:prompt="@string/action"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+        android:layout_alignLeft="@+id/whenLabel"
+        android:layout_below="@+id/whenLabel"
+        android:layout_marginTop="20dp"
+        android:text="@string/suitability" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:id="@+id/CommentsText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignRight="@+id/radio2"
-        android:layout_toRightOf="@+id/RadioSuitability"
+        android:layout_alignLeft="@+id/CommentsLabel"
+        android:layout_alignRight="@+id/Submit"
+        android:layout_below="@+id/CommentsLabel"
         android:ems="10"
-        android:inputType="text"
-        android:singleLine="true" />
-
-    <EditText
-        android:id="@+id/EditText01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_below="@+id/textView8"
-        android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/RadioSuitability"
-        android:ems="10"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:singleLine="false" />
 
     <Button
         android:id="@+id/Submit"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/EditText01"
-        android:layout_alignLeft="@+id/datePicker2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginRight="14dp"
         android:background="@drawable/custom_button_green"
+        android:gravity="top"
         android:text="@string/submit" />
+
+    <EditText
+        android:id="@+id/EmployerInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/CommentsText"
+        android:layout_below="@+id/ActionSpinner"
+        android:ems="10"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/ActionSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ActionLabel"
+        android:layout_alignBottom="@+id/ActionLabel"
+        android:layout_alignLeft="@+id/furtherAction_spinner"
+        android:entries="@array/country_arrays"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <Spinner
+        android:id="@+id/furtherAction_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/FurtherActionLabel"
+        android:layout_alignBottom="@+id/FurtherActionLabel"
+        android:layout_alignRight="@+id/RadioSuitability"
+        android:entries="@array/country_arrays"
+        android:prompt="@string/action"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <TextView
+        android:id="@+id/DateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/DateName"
+        android:layout_alignBottom="@+id/DateName"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/whenLabel"
+        android:text="@string/datePicker" />
 
 </RelativeLayout>
