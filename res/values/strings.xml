@@ -63,4 +63,6 @@
         <item>India</item>
     </string-array>
         <string name="submit">Submit</string>
+        <string name="employerEg">e.g. Jobcentre</string>
+        <string name="datePicker">Click to Enter Date</string>
 </resources>
