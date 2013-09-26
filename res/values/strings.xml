@@ -41,6 +41,8 @@
     <string name="title">Title: </string>
     <string name="description">Description: </string>
     <string name="apply">Apply!</string>
+   
+    <!-- Diary -->
     <string name="date">Date</string>
     <string name="employer">Employer</string>
     <string name="further_action">Further Action</string>
@@ -52,6 +54,7 @@
     <string name="Unsure">Unsure</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
+    <string name="PickDate">Pick Date:</string>
     
     <string-array name="country_arrays">
         <item>Malaysia</item>

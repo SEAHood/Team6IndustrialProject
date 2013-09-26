@@ -27,14 +27,16 @@ public class JobSearch implements JobWebInterface {
 	public JSONObject jobResults;
 	public JSONArray results;
 	private HttpClient client;
-	String getURL = "http://samhood.net/jh/search.php";
+	String getURL = "http://samhood.net/jh/search.php?q=";
 	public String statusCode;
 	public Context parentContext;
 
+	public String searchItem;
 	private ProgressDialog mProgressDialog;
 
-	public void findJobs(Context sentContext) {
+	public void findJobs(Context sentContext, String search) {
 		parentContext = sentContext;
+		searchItem = search;
 		showProgressDialog("Searching Jobs...");
 		new getJobsThread().execute();
 	}
@@ -60,7 +62,7 @@ public class JobSearch implements JobWebInterface {
 
 			client = new DefaultHttpClient();
 
-			HttpGet get = new HttpGet(getURL);
+			HttpGet get = new HttpGet(getURL+searchItem);
 			HttpResponse response;
 
 			int code = 0;

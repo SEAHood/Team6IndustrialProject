@@ -14,54 +14,60 @@
     
     <Button
         android:id="@+id/buttonSearch"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        
         android:layout_alignParentTop="true"
-       
         android:layout_toLeftOf="@+id/anchor"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:text="@string/search" 
-        android:background="@drawable/custom_button_green"/>
+        android:layout_marginTop="120dp" 
+        android:background="@drawable/searchlogo"
+        />
 
+    <TextView 
+        android:id="@+id/searchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/anchor"
+        android:layout_below="@+id/buttonSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp" 
+        android:text="@string/search"
+        />
+    
      <Button
          android:id="@+id/buttonDiary"
-         android:layout_width="80dp"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignBaseline="@+id/buttonSearch"
          android:layout_marginLeft="20dp"
          android:layout_alignBottom="@+id/buttonSearch"
          android:layout_toRightOf="@+id/anchor"
          android:layout_centerHorizontal="true"
-         android:text="@string/diary" 
-         android:background="@drawable/custom_button_green"/>
-
+         android:background="@drawable/diarylogo"/>
+     
           <Button
               android:id="@+id/buttonProfile"
-              android:layout_width="80dp"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignRight="@+id/buttonSearch"
-              
               android:layout_below="@+id/buttonSearch"
               android:layout_centerHorizontal="true"
               android:layout_toLeftOf="@+id/anchor"
-              android:layout_marginTop="21dp"
-              android:text="@string/profile" 
-              android:background="@drawable/custom_button_green"/>
-     
+              android:layout_marginTop="30dp"
+              android:background="@drawable/profilelogo"/>
+          
              <Button
               android:id="@+id/buttonSaved"
-              android:layout_width="80dp"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignRight="@+id/buttonDiary"
               android:layout_toRightOf="@+id/anchor"
               android:layout_below="@+id/buttonDiary"
               android:layout_centerHorizontal="true"
-              android:layout_marginTop="21dp"
+              android:layout_marginTop="30dp"
               android:layout_marginLeft="20dp"
-              android:text="@string/saved" 
-              android:background="@drawable/custom_button_green"/>
+              android:background="@drawable/savedlogo"/>
 
              <ImageView
                  android:id="@+id/imageView1"
@@ -70,7 +76,7 @@
                  android:layout_alignParentRight="true"
                  android:layout_alignParentTop="true"
                  android:layout_marginRight="30dp"
-                 android:src="@drawable/templogo" />
+                 android:src="@drawable/logo" />
              
                <ImageView
                  android:id="@+id/imageView2"
@@ -80,5 +86,33 @@
                  android:layout_alignParentTop="true"
                  android:layout_marginLeft="30dp"
                  android:src="@drawable/templogo" />
+
+               <TextView
+                   android:id="@+id/profileText"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignRight="@+id/searchText"
+                   android:layout_below="@+id/buttonProfile"
+                   android:text="@string/profile" />
+               
+               <TextView
+                   android:id="@+id/savedText"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignRight="@+id/diaryText"
+                   android:layout_below="@+id/buttonSaved"
+                   android:text="@string/saved"
+                   android:layout_marginLeft="13dp" />
+               
+
+               <TextView
+                   android:id="@+id/diaryText"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignBaseline="@+id/searchText"
+                   android:layout_alignBottom="@+id/searchText"
+                   android:layout_alignLeft="@+id/buttonSaved"
+                   android:layout_marginLeft="13dp"
+                   android:text="@string/diary" />
           
 </RelativeLayout>

@@ -27,11 +27,78 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_above="@+id/LinearLayoutNavBar"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:text="@string/back"
         android:background="@drawable/custom_button_green" />
+    
+           <LinearLayout
+        android:id="@+id/LinearLayoutNavBar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:baselineAligned="false"
+        android:background="@drawable/nav_highlight_rect"  >
+        
+
+
+	        <Button
+	            android:id="@+id/btn_Home_Menu"
+	            style="?android:attr/borderlessButtonStyle"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	           
+	            android:layout_weight="2" />
+
+        
+	        
+	        <Button
+	            android:id="@+id/btnProfile"
+	            style="?android:attr/borderlessButtonStyle"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="bottom"
+	            android:drawableBottom="@drawable/profilelogo"
+	            android:layout_weight="2" />
+
+        
+	
+	        <Button
+	            android:id="@+id/btnSearch"
+	            style="?android:attr/borderlessButtonStyle"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="bottom"
+	            android:drawableBottom="@drawable/searchlogo"
+	            android:layout_weight="2" />
+	        
+
+
+	        <Button
+	            android:id="@+id/btnDiary"
+	            style="?android:attr/borderlessButtonStyle"
+				android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+	            android:layout_gravity="bottom"
+	            android:drawableBottom="@drawable/diarylogo"
+	            android:layout_weight="2" />
+        
+
+	
+	        <Button
+	            android:id="@+id/btnSaved"
+	            style="?android:attr/borderlessButtonStyle"
+	            android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+	            android:layout_gravity="bottom"
+	            android:drawableBottom="@drawable/savedlogo"
+	            android:layout_weight="2" />
+	        
+        
+    </LinearLayout>
+    
 
 </RelativeLayout>

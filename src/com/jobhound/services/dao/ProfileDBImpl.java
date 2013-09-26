@@ -79,7 +79,13 @@ public class ProfileDBImpl extends BaseService implements ProfileDBInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if (profile !=null)
+		{
 		return profile.getProgress();
+		}else
+		{
+			return 0;
+		}
 	}
 
 	@Override

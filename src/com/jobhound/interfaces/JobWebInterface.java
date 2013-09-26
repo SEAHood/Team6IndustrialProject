@@ -4,6 +4,6 @@ import android.content.Context;
 
 public interface JobWebInterface {
 
-	public void findJobs(Context sentContext);
+	public void findJobs(Context sentContext,String search);
 	
 }

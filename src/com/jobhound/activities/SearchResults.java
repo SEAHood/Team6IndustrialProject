@@ -15,7 +15,10 @@ import android.widget.ListView;
 
 import com.jobhound.R;
 import com.jobhound.datasource.Jobs;
+import com.jobhound.datasource.Profile;
 import com.jobhound.interfaces.JobWebInterface;
+import com.jobhound.interfaces.ProfileDBInterface;
+import com.jobhound.services.dao.ProfileDBImpl;
 import com.jobhound.services.ws.JobSearch;
 import com.jobhound.activities.CustomListAdapter;
 
@@ -30,12 +33,14 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 	@InjectView(android.R.id.list) ListView results;
 	CustomListAdapter myAdapter;
 	Jobs selectedJob;
+	ProfileDBInterface profileDB;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_results);
+		profileDB = new ProfileDBImpl(this);
 		job = new JobSearch();
 		populateList();
 		
@@ -57,7 +62,9 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 
 
 	public void populateList() {
-		job.findJobs(this);
+		
+		Profile profile = profileDB.getProfile();		
+		job.findJobs(this, profile.getJob1());
 	}
 
 	public void receiveUserDetails(JSONArray jobResults) {
@@ -70,15 +77,17 @@ public class SearchResults extends RoboListActivity implements OnClickListener {
 					JSONArray jobParse = new JSONArray();
 					String testresult = jobResults.get(i).toString();
 					jobParse = new JSONArray(testresult);
-
-					for (int x = 0; x < jobParse.length(); x++) {
-						JSONObject jobPost = new JSONObject();
-						jobPost = jobParse.getJSONObject(x);
-						Jobs jobs = new Jobs(jobPost.getString("source"),
+					if (jobParse!=null)
+					{
+						for (int x = 0; x < jobParse.length(); x++) {
+							JSONObject jobPost = new JSONObject();
+							jobPost = jobParse.getJSONObject(x);
+							Jobs jobs = new Jobs(jobPost.getString("source"),
 								jobPost.getString("description"),
 								jobPost.getString("title"),
 								jobPost.getString("url"));
-						JobList.add(jobs);
+							JobList.add(jobs);
+						}
 					}
 				}
 				

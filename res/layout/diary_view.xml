@@ -4,14 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <DatePicker
+    <Button
         android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView1"
         android:layout_alignBottom="@+id/textView1"
         android:layout_marginLeft="54dp"
-        android:layout_toRightOf="@+id/textView1" />
+        android:layout_toRightOf="@+id/textView1"
+        android:background="@drawable/custom_button_green"
+        android:text="@string/PickDate"/>"
 
     <TextView
         android:id="@+id/textView1"
@@ -42,13 +44,15 @@
         android:layout_marginTop="19dp"
         android:text="@string/employer" />
 
-    <DatePicker
+    <Button
         android:id="@+id/datePicker2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/datePicker1"
         android:layout_alignTop="@+id/textView5"
-        android:layout_marginLeft="41dp" />
+        android:layout_marginLeft="41dp" 
+        android:background="@drawable/custom_button_green"
+        android:text="@string/PickDate"/>
 
     <RadioGroup
         android:id="@+id/RadioSuitability"
