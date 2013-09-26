@@ -22,6 +22,7 @@
      android:layout_centerHorizontal="true"
      android:layout_below="@+id/titleProfile"
      android:layout_marginTop="8dp"
+     android:inputType="textCapSentences"
      android:ems="8" 
      android:background="@drawable/custom_button_green"/>
 
@@ -32,6 +33,7 @@
      android:layout_alignLeft="@+id/job1"
      android:layout_below="@+id/job1"
      android:layout_marginTop="8dp"
+     android:inputType="textCapSentences"
      android:ems="8" 
      android:background="@drawable/custom_button_green"/>
 
@@ -42,6 +44,7 @@
      android:layout_alignLeft="@+id/job2"
      android:layout_below="@+id/job2"
      android:layout_marginTop="8dp"
+     android:inputType="textCapSentences"
      android:ems="8"
      android:background="@drawable/custom_button_green" />
 
@@ -121,42 +124,23 @@
      android:layout_marginTop="20dp"
      android:text="@string/jsaProgress" />
   
-       <Button  
+   <Button  
      android:id="@+id/btn_save"  
      android:layout_width="wrap_content"  
      android:layout_height="wrap_content"
      android:layout_alignParentBottom="true"  
      android:layout_centerHorizontal="true"
      android:layout_marginBottom="20dp"  
-     android:text="Save"  
+     android:text="@string/save"  
      android:background="@drawable/custom_button_green" />
        
- <RelativeLayout  
+<RelativeLayout  
      android:id="@+id/rl_progress_bar_set"  
      android:layout_width="fill_parent"  
      android:layout_height="wrap_content"
      android:layout_below="@+id/jsaProgress"  
      android:layout_marginTop="10dp"  
      android:visibility="gone" > 
-     
-
- 
- <!--<TextView
-     android:id="@+id/workHours"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_alignBaseline="@+id/spinner2"
-     android:layout_alignBottom="@+id/spinner2"
-     android:layout_alignParentLeft="true"
-     android:layout_marginLeft="10dp"
-     android:text="@string/workHours" />
-     
- <Spinner
-     android:id="@+id/spinner2"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_centerHorizontal="true"
-     android:layout_below="@+id/spinner1"/>-->
- 
+      
 </RelativeLayout>
 </RelativeLayout>

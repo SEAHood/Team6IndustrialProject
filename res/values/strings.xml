@@ -31,6 +31,7 @@
         <item>>32</item>
     </string-array>
     <string name="jsaProgress">JSA Progress: </string>
+    <string name="save">Save</string>
     
     <!-- Search Results -->
     <string name="results">Search Results: </string>
