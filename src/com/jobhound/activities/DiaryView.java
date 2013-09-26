@@ -18,8 +18,10 @@ import roboguice.inject.InjectView;
 public class DiaryView extends RoboFragmentActivity implements OnClickListener{
 	
 	
-	@InjectView(R.id.datePicker1) Button date1;
-	@InjectView(R.id.datePicker2) Button date2;
+	@InjectView(R.id.datePicker1) Button dateButton;
+	@InjectView(R.id.datePicker2) Button dateSelector;
+	@InjectView(R.id.Submit) Button submit;
+	
 	
 	String parent = "DiaryView";
 	DialogFragment newFragment;
@@ -29,6 +31,10 @@ public class DiaryView extends RoboFragmentActivity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.diary_view);
+		
+		dateButton.setOnClickListener(this);
+		dateSelector.setOnClickListener(this);
+		submit.setOnClickListener(this);
 		
 	}
 	
@@ -82,11 +88,11 @@ public class DiaryView extends RoboFragmentActivity implements OnClickListener{
 	
 	public void setDateA(String Date)
 	{
-		date1.setText(Date);
+		dateButton.setText(Date);
 	}
 	public void setDateB(String Date)
 	{
-		date1.setText(Date);
+		dateSelector.setText(Date);
 	}
 }
 

@@ -4,17 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/datePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/DateName"
-        android:layout_alignBottom="@+id/DateName"
-        android:layout_marginLeft="54dp"
-        android:layout_toRightOf="@+id/DateName"
-        android:background="@drawable/custom_button_green"
-        android:text="@string/PickDate"/>
-
     <TextView
         android:id="@+id/DateName"
         android:layout_width="wrap_content"
@@ -43,16 +32,6 @@
         android:layout_below="@+id/ActionLabel"
         android:layout_marginTop="19dp"
         android:text="@string/employer" />
-
-    <Button
-        android:id="@+id/datePicker2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/datePicker1"
-        android:layout_alignTop="@+id/EmployerInput"
-        android:layout_marginLeft="41dp" 
-        android:background="@drawable/custom_button_green"
-        android:text="@string/PickDate"/>
 
 
     <RadioGroup
@@ -190,7 +169,7 @@
         android:layout_alignBaseline="@+id/ActionLabel"
         android:layout_alignBottom="@+id/ActionLabel"
         android:layout_alignLeft="@+id/furtherAction_spinner"
-        android:entries="@array/country_arrays"
+        android:entries="@array/actions_arrays"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
     <Spinner
@@ -200,18 +179,28 @@
         android:layout_alignBaseline="@+id/FurtherActionLabel"
         android:layout_alignBottom="@+id/FurtherActionLabel"
         android:layout_alignRight="@+id/RadioSuitability"
-        android:entries="@array/country_arrays"
+        android:entries="@array/actions_arrays"
         android:prompt="@string/action"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
-    <TextView
-        android:id="@+id/DateView"
+    <Button
+        android:id="@+id/datePicker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/whenLabel"
+        android:layout_alignBottom="@+id/whenLabel"
+        android:layout_alignRight="@+id/EmployerInput"
+        android:background="@drawable/custom_button_green"
+        android:text="@string/PickDate" />
+
+    <Button
+        android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/DateName"
         android:layout_alignBottom="@+id/DateName"
-        android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/whenLabel"
-        android:text="@string/datePicker" />
+        android:layout_alignRight="@+id/EmployerInput"
+        android:background="@drawable/custom_button_green"
+        android:text="@string/PickDate" />
 
 </RelativeLayout>

@@ -56,16 +56,17 @@
     <string name="No">No</string>
     <string name="PickDate">Pick Date:</string>
     
-    <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
+    <string-array name="actions_arrays">
+        <item> </item>
+        <item>Interview</item>
+        <item>Applied Online</item>
+        <item>Applied in Person</item>
+        <item>Inquired in Store</item>
+        <item>Training</item>
+        <item>Went to the Jobcentre</item>
     </string-array>
+    
+    
         <string name="submit">Submit</string>
         <string name="employerEg">e.g. Jobcentre</string>
         <string name="datePicker">Click to Enter Date</string>
