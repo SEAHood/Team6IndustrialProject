@@ -31,6 +31,7 @@
         <item>>32</item>
     </string-array>
     <string name="jsaProgress">JSA Progress: </string>
+    <string name="save">Save</string>
     
     <!-- Search Results -->
     <string name="results">Search Results: </string>
@@ -48,4 +49,19 @@
     <string name="suitability">Suitability</string>
     <string name="reason">Reason</string>
     <string name="comments">Comments</string>
+    <string name="Unsure">Unsure</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    
+    <string-array name="country_arrays">
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
+        <string name="submit">Submit</string>
 </resources>

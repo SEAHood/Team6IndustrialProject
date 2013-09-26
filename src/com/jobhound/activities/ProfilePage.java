@@ -7,8 +7,11 @@ import com.jobhound.services.dao.ProfileDBImpl;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -134,6 +137,30 @@ public class ProfilePage extends RoboActivity implements OnClickListener {
 		
 		
 		}
+	}
+
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+		View v = getCurrentFocus();
+	    if (v instanceof EditText) {
+	        View w = getCurrentFocus();
+	        int scrcoords[] = new int[2];
+	        w.getLocationOnScreen(scrcoords);
+	        float x = event.getRawX() + w.getLeft() - scrcoords[0];
+	        float y = event.getRawY() + w.getTop() - scrcoords[1];
+
+	        Log.d("Activity", "Touch event "+event.getRawX()+","+event.getRawY()+" "+x+","+y+" rect "+w.getLeft()+","+w.getTop()+","+w.getRight()+","+w.getBottom()+" coords "+scrcoords[0]+","+scrcoords[1]);
+	        if (event.getAction() == MotionEvent.ACTION_UP && (x < w.getLeft() || x >= w.getRight() || y < w.getTop() || y > w.getBottom()) ) { 
+
+	            InputMethodManager imm = (InputMethodManager)getSystemService(ProfilePage.INPUT_METHOD_SERVICE);
+	            imm.hideSoftInputFromWindow(getWindow().getCurrentFocus().getWindowToken(), 0);
+	        }
+	    }
+	    	
+		
+		return super.dispatchTouchEvent(event);
 	}
 
 }
