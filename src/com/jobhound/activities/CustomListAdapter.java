@@ -111,7 +111,16 @@ public class CustomListAdapter extends BaseAdapter {
         	  
         		  name.setText(entry.getDate());
         	 
-        	  extraInfo.setText(entry.getAction());
+        		  String [] actions = new String[7];
+        		  actions[0] = "Used JobHound App";
+        		  actions[1] = "Interview";
+        		  actions[2] = "Applied Online";
+        		  actions[3] = "Applied in Person";
+        		  actions[4] = "Inquired in Store";
+        		  actions[5] = "Training";
+        		  actions[6] = "Went to the Jobcentre";
+        		  
+        	  extraInfo.setText(actions[entry.getAction()]);
       	}
 		
 		

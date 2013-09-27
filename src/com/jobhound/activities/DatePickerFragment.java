@@ -1,7 +1,6 @@
 package com.jobhound.activities;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

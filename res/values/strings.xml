@@ -43,6 +43,7 @@
     <string name="apply">Apply!</string>
    
     <!-- Diary -->
+    <string name="diaryLog">Diary Log</string>
     <string name="date">Date</string>
     <string name="employer">Employer</string>
     <string name="further_action">Further Action</string>
@@ -54,10 +55,20 @@
     <string name="Unsure">Unsure</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
-    <string name="PickDate">Pick Date:</string>
+    <string name="PickDate">Pick Date</string>
     
     <string-array name="actions_arrays">
-        <item> </item>
+        <item>Used JobHound App</item>
+        <item>Interview</item>
+        <item>Applied Online</item>
+        <item>Applied in Person</item>
+        <item>Inquired in Store</item>
+        <item>Training</item>
+        <item>Went to the Jobcentre</item>
+    </string-array>
+    
+       <string-array name="further_actions_arrays">
+        <item>Needs Action</item>
         <item>Interview</item>
         <item>Applied Online</item>
         <item>Applied in Person</item>

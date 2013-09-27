@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.jobhound.R;
 import com.jobhound.datasource.DiaryEntry;
+import com.jobhound.interfaces.DiaryDBInterface;
 import com.jobhound.services.dao.DiaryDBImpl;
 import com.jobhound.activities.CustomListAdapter;
 
@@ -19,20 +20,33 @@ import roboguice.inject.InjectView;
 
 public class DiaryLog extends RoboListActivity implements OnClickListener {
 
-	DiaryDBImpl diary_list;
+	DiaryDBInterface diaryDB;
+
 
 	@InjectView(R.id.back) Button back;
 	@InjectView(android.R.id.list) ListView results;
 	CustomListAdapter myAdapter;
 	DiaryEntry diary_entry;
+	
+	@InjectView(R.id.btn_Home_Menu) Button homeBtn;
+	@InjectView(R.id.btnProfile) Button profileBtn;
+	@InjectView(R.id.btnDiary) Button diaryBtn;
+	@InjectView(R.id.btnSearch) Button searchBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.search_results);
-		diary_list = new DiaryDBImpl(this);
+		setContentView(R.layout.diary_layout);
+		diaryDB = new DiaryDBImpl(this);
 		populateList();
+		
+		back.setOnClickListener(this);
+		//NAV BAR ---------------------
+		homeBtn.setOnClickListener(this);
+		profileBtn.setOnClickListener(this);
+		diaryBtn.setOnClickListener(this);
+		searchBtn.setOnClickListener(this);
 	}
 	
 	@Override
@@ -48,7 +62,7 @@ public class DiaryLog extends RoboListActivity implements OnClickListener {
 	public void populateList() {
 		
 		ArrayList<DiaryEntry> diaryLog = new ArrayList<DiaryEntry>();
-		diaryLog = diary_list.getList();
+		diaryLog = diaryDB.getList();
 		results.setAdapter( myAdapter = new CustomListAdapter(null,diaryLog, this, "DiaryLog"));
 	}
 
@@ -60,9 +74,9 @@ public class DiaryLog extends RoboListActivity implements OnClickListener {
 		
 		Bundle diaryBundle = new Bundle();
 		diaryBundle.putString("date", diary_entry.getDate());
-		diaryBundle.putString("action", diary_entry.getAction());
+		diaryBundle.putInt("action", diary_entry.getAction());
 		diaryBundle.putString("employer", diary_entry.getEmployer());
-		diaryBundle.putString("further_action", diary_entry.getFurtherAction());
+		diaryBundle.putInt("further_action", diary_entry.getFurtherAction());
 		diaryBundle.putString("further_date", diary_entry.getFDate());
 		diaryBundle.putString("suitability", diary_entry.getSuitability());
 		diaryBundle.putString("reason", diary_entry.getReason());
@@ -86,6 +100,36 @@ public class DiaryLog extends RoboListActivity implements OnClickListener {
 			startActivity(openMainMenu);
 			overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
 			break;
+			
+			//NAV BAR ------------------------
+					case R.id.btn_Home_Menu:
+						Intent openHome = new Intent("android.intent.action.MAIN_MENU");
+				    	finish();
+						startActivity(openHome);
+						overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
+						break;
+						
+					case R.id.btnProfile:
+						Intent openProfile = new Intent("android.intent.action.PROFILE_PAGE");
+				    	finish();
+						startActivity(openProfile);
+						overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
+						break;
+						
+					case R.id.btnSearch:
+						Intent openSearch = new Intent("android.intent.action.SEARCH_MENU");
+				    	finish();
+						startActivity(openSearch);
+						overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right);
+						break;
+						
+					case R.id.btnDiary:
+					
+						break;
+			
 		}
 	}
+	
+	
+	
 }

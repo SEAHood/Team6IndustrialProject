@@ -97,7 +97,8 @@ public class SingleSearchResult extends RoboActivity implements OnClickListener 
 					        
 					        DiaryEntry applyJob = new DiaryEntry();
 					        applyJob.setDate(dateLogged);
-					        applyJob.setAction("Looked into applying for Job via JobHound.");
+					        applyJob.setAction(0);
+					        applyJob.setFurtherAction(0);
 					        applyJob.setEmployer(SourceText.getText().toString());
 					        applyJob.setComments(DescriptionText.getText().toString());
 					        

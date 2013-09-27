@@ -9,18 +9,18 @@ public class DiaryEntry {
 	public static final String EMPLOYER = "employer";
 	public static final String FURTHERACTION = "furtherAction";
 	public static final String FDATE = "fDate";
-	public static final String SUITABILITY = "suitablility";
+	public static final String SUITABILITY = "suitability";
 	public static final String REASON = "reason";
 	public static final String COMMENTS = "comments";
 	
 	@DatabaseField(columnName=DATE)
 	private String date;
 	@DatabaseField(columnName=ACTION)
-	private String action;
+	private int action;
 	@DatabaseField(columnName=EMPLOYER)
 	private String employer;
 	@DatabaseField(columnName=FURTHERACTION)
-	private String furtherAction;
+	private int furtherAction;
 	@DatabaseField(columnName=FDATE)
 	private String fDate;
 	@DatabaseField(columnName=SUITABILITY)
@@ -30,7 +30,7 @@ public class DiaryEntry {
 	@DatabaseField(columnName=COMMENTS)
 	private String comments;
 	
-	public DiaryEntry(String date, String action, String employer,String furtherAction, String fDate, String suitability, String reason, String comments)
+	public DiaryEntry(String date, int action, String employer,int furtherAction, String fDate, String suitability, String reason, String comments)
 	{
 		this.date = date;
 		this.action=action;
@@ -47,12 +47,12 @@ public class DiaryEntry {
 		
 	}
 	
-	public String getAction()
+	public int getAction()
 	{
 		return action;
 	}
 	
-	public void setAction(String action)
+	public void setAction(int action)
 	{
 		this.action=action;
 	}
@@ -77,12 +77,12 @@ public class DiaryEntry {
 		this.date=date;
 	}
 	
-	public String getFurtherAction()
+	public int getFurtherAction()
 	{
 		return furtherAction;
 	}
 	
-	public void setFurtherAction(String furtherAction)
+	public void setFurtherAction(int furtherAction)
 	{
 		this.furtherAction=furtherAction;
 	}

@@ -5,17 +5,6 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/DateName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="59dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/date"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/FurtherActionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ReasonLabel"
         android:layout_below="@+id/ReasonText"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:text="@string/comments" />
 
     <EditText
@@ -98,12 +87,8 @@
         android:layout_alignLeft="@+id/CommentsLabel"
         android:layout_below="@+id/ReasonLabel"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:lines="3"
-        android:maxLines="5"
-        android:scrollbars="vertical"
-        android:gravity="top"
-        android:singleLine="false" />
+        android:inputType="textCapSentences"
+         />
 
     <TextView
         android:id="@+id/whenLabel"
@@ -123,31 +108,15 @@
         android:layout_marginTop="20dp"
         android:text="@string/suitability" />
 
-    <EditText
-        android:id="@+id/CommentsText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/CommentsLabel"
-        android:layout_alignRight="@+id/Submit"
-        android:layout_below="@+id/CommentsLabel"
-        android:ems="10"
-        android:gravity="top"
-        android:inputType="textMultiLine"
-        android:lines="3"
-        android:maxLines="5"
-        android:scrollbars="vertical"
-        android:singleLine="false" />
-
     <Button
-        android:id="@+id/Submit"
-        android:layout_width="90dp"
+        android:id="@+id/SubmitBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="17dp"
         android:layout_marginRight="14dp"
         android:background="@drawable/custom_button_green"
-        android:gravity="top"
         android:text="@string/submit" />
 
     <EditText
@@ -161,27 +130,6 @@
 
         <requestFocus />
     </EditText>
-
-    <Spinner
-        android:id="@+id/ActionSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ActionLabel"
-        android:layout_alignBottom="@+id/ActionLabel"
-        android:layout_alignLeft="@+id/furtherAction_spinner"
-        android:entries="@array/actions_arrays"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
-
-    <Spinner
-        android:id="@+id/furtherAction_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/FurtherActionLabel"
-        android:layout_alignBottom="@+id/FurtherActionLabel"
-        android:layout_alignRight="@+id/RadioSuitability"
-        android:entries="@array/actions_arrays"
-        android:prompt="@string/action"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
     <Button
         android:id="@+id/datePicker2"
@@ -198,9 +146,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/DateName"
-        android:layout_alignBottom="@+id/DateName"
+
         android:layout_alignRight="@+id/EmployerInput"
         android:background="@drawable/custom_button_green"
         android:text="@string/PickDate" />
+
+    <Spinner
+        android:id="@+id/ActionSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ActionLabel"
+        android:layout_alignBottom="@+id/ActionLabel"
+        android:layout_alignRight="@+id/EmployerInput"
+        android:entries="@array/actions_arrays"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <Spinner
+        android:id="@+id/furtherAction_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/datePicker2"
+        android:layout_below="@+id/EmployerLabel"
+        android:entries="@array/further_actions_arrays"
+        android:prompt="@string/action"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <EditText
+        android:id="@+id/CommentsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CommentsLabel"
+        android:layout_below="@+id/CommentsLabel"
+        android:ems="10"
+        android:inputType="textCapSentences" />
+
+    <TextView
+        android:id="@+id/DateName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ActionLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/date"/>
 
 </RelativeLayout>

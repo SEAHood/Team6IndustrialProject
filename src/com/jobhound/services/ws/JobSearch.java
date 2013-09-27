@@ -123,4 +123,5 @@ public class JobSearch implements JobWebInterface {
 		}
 
 	}
+
 }
